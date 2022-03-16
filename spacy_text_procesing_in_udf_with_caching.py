@@ -17,7 +17,7 @@ session.clear_imports()
 # Add file dependency
 session.add_import('@dash_udf_imports/en_core_web_sm.zip.gz')
 
-# Create function that caches code to download and extracts file
+# Create function that caches results after downloading and extracting a file
 from cachetools import cached
 
 @cached(cache={})
@@ -33,7 +33,7 @@ def load_en_core_web_sm(input_file: str, output_dir: str)-> object:
     return nlp 
 
 
-# Create UDF that leverages the cached extracted version of spacy's optimized "English" pipeline (en_core_web_sm) and process the passing in text 
+# Create UDF that leverages the cached version of spacy's optimized "English" pipeline (en_core_web_sm) and process the passing in text 
 @udf(session=session,packages=['spacy==2.3.5','beautifulsoup4','cachetools==4.2.2'],replace=True)
 def process_text(text: str) -> str:
     import os
@@ -73,5 +73,5 @@ df.collect()
 
 ### Results:
 # Calling UDF process_text() in a DataFrame with 1000 rows
-# ~8 MINUTES -- WITHOUT caching by not adding @cached(cache={}) decorator on function extract_en_core_web_sm()
-# ~5 SECONDS -- WITH caching by adding @cached(cache={}) decorator on function extract_en_core_web_sm(): 
+# ~8 MINUTES -- WITHOUT caching by not adding @cached(cache={}) decorator on function load_en_core_web_sm()
+# ~5 SECONDS -- WITH caching by adding @cached(cache={}) decorator on function load_en_core_web_sm(): 
