@@ -1,6 +1,6 @@
 ### Assumptions:
 # You have en_core_web_sm.zip downloaded locally
-# You have the necessary packages installed including cachetools, spacy, beautifulsoup4
+# You have the necessary packages installed including snowflake.snowpark, cachetools, spacy, beautifulsoup4
 
 ### Results:
 # Calling UDF process_text() in a DataFrame with 1000 rows -- once per row
