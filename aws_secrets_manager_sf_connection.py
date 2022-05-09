@@ -1,5 +1,6 @@
 ### Pre-reqs: 
-# pip install boto3 awscli json snowflake.snowpark
+# snowflake.snowpark
+# pip install boto3 awscli json 
 # Set AWS credentials via environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
 ###
 
