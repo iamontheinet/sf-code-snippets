@@ -1,4 +1,5 @@
 ### Pre-reqs: 
+# snowflake.snowpark
 # pip install azure-keyvault-secrets azure-identity azure-cli
 # Log into your Azure account via Azure CLI (i.e. az login) 
 ###
