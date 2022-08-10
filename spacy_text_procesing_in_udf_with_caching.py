@@ -33,7 +33,7 @@ def load_en_core_web_sm(input_file: str, output_dir: str)-> object:
     return nlp 
 
 
-# Create UDF that leverages the cached version of spacy's optimized "English" pipeline (en_core_web_sm) and process the passing in text 
+# Create and register a UDF that leverages the cached version of spacy's optimized "English" pipeline (en_core_web_sm) and processes the passed in text 
 @udf(session=session,packages=['spacy==2.3.5','beautifulsoup4','cachetools==4.2.2'],replace=True)
 def process_text(text: str) -> str:
     import os
